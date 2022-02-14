@@ -1,0 +1,27 @@
+<div class="todos container-fluid container-sm">
+  <form (submit)="addTodo()">
+    <input
+      type="text"
+      name="inputTodo"
+      placeholder="Escreva a sua tarefa..."
+      class="todo-input"
+      [(ngModel)]="inputTodo"
+    />
+    <input type="submit" value="Adicionar" class="todo-submit btn btn-outline-dark btn">
+
+  </form>
+
+  <div *ngFor="let todo of todos; let i = index;" class="todo {{ (todo.completed ? 'done' : '') }}">
+      <!-- <div class="id"> {{ i }}</div> -->
+      <div class="form-check content" (click)="toggleDone(i)">
+
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label content" for="flexCheckDefault" (click)="toggleDone(i)">
+          {{ todo.content }}
+        </label>
+      </div>
+
+      <button type="button" class="delete btn btn-danger btn-sm" (click)="deleteTodo(i)">Remover</button>
+
+  </div>
+</div>
