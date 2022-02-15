@@ -15,9 +15,9 @@ export class TodosComponent implements OnInit {
   constructor(private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
-    this.todos = [
 
-    ]
+    this.getTodo();
+
   }
 
   toggleDone(id:number){
@@ -33,6 +33,8 @@ export class TodosComponent implements OnInit {
   }
 
   addTodo(){
+    this.todos = JSON.parse(localStorage.getItem('todos') || '[]')
+
     this.todos?.push({
       content:this.inputTodo,
       completed: false
@@ -43,4 +45,12 @@ export class TodosComponent implements OnInit {
     this.inputTodo = "";
   }
 
+  getTodo(){
+    this.todos = JSON.parse(localStorage.getItem('todos') || '[]')
+
+  }
+
 }
+
+
+

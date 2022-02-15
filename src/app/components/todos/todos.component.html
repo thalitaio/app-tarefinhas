@@ -7,7 +7,7 @@
       class="todo-input"
       [(ngModel)]="inputTodo"
     />
-    <input type="submit" value="Adicionar" class="todo-submit btn btn-outline-dark btn">
+    <input type="submit" value="Adicionar" class="todo-submit">
 
   </form>
 
@@ -17,7 +17,7 @@
 
         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
         <label class="form-check-label content" for="flexCheckDefault" (click)="toggleDone(i)">
-          {{ todo.content }}
+         {{ todo.content }}
         </label>
       </div>
 
